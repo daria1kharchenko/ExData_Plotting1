@@ -4,6 +4,8 @@ data$datetime <- as.POSIXct(paste(data$Date, data$Time), format = '%d/%m/%Y %H:%
 twodays <- filter(data, between(datetime, as.POSIXct('2007-02-01 00:00:00'), as.POSIXct('2007-02-02 23:59:59')))
 
 dev.new(width = 480, height = 480, unit = 'px')
+par(bg = 'white')
+
 with(twodays, plot(datetime, Sub_metering_1, type = 'l', ylab = 'Energy sub metering', xlab = ''))
 with(twodays, points(datetime, Sub_metering_2, type = 'l', col = 'red'))
 with(twodays, points(datetime, Sub_metering_3, type = 'l', col = 'blue'))
